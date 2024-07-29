@@ -1,9 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
+using Xunit;
 using YellowDuckSoftware.Csv.Reader;
 
 namespace YellowDuckSoftware.Csv.Tests
@@ -20,9 +16,9 @@ namespace YellowDuckSoftware.Csv.Tests
                     lineNum++;
                     if (lineNum == 1)
                     {
-                        Assert.IsTrue(reader.ColumnNames.ToList().Contains("ID"));
-                        Assert.IsTrue(reader.ColumnNames.ToList().Contains("NAME"));
-                        Assert.IsTrue(reader.ColumnNames.ToList().Contains("VALUE"));
+                        Assert.True(reader.ColumnNames.ToList().Contains("ID"));
+                        Assert.True(reader.ColumnNames.ToList().Contains("NAME"));
+                        Assert.True(reader.ColumnNames.ToList().Contains("VALUE"));
                     }
 
                     switch (lineNum)
@@ -49,12 +45,12 @@ namespace YellowDuckSoftware.Csv.Tests
 
         private void ConfirmValues(IReader reader, string id, string name, string value)
         {
-            Assert.IsTrue(reader["ID"] == id);
-            Assert.IsTrue(reader[0] == id);
-            Assert.IsTrue(reader["NAME"] == name);
-            Assert.IsTrue(reader[1] == name);
-            Assert.IsTrue(reader["VALUE"] == value);
-            Assert.IsTrue(reader[2] == value);
+            Assert.True(reader["ID"] == id);
+            Assert.True(reader[0] == id);
+            Assert.True(reader["NAME"] == name);
+            Assert.True(reader[1] == name);
+            Assert.True(reader["VALUE"] == value);
+            Assert.True(reader[2] == value);
         }
     }
 }

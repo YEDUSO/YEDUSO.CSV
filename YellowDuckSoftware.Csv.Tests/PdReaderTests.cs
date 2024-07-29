@@ -1,20 +1,19 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
+using Xunit;
 using YellowDuckSoftware.Csv.Reader;
 
 namespace YellowDuckSoftware.Csv.Tests
 {
-    [TestClass]
     public class PdReaderTests
     {
-        [TestMethod]
+        [Fact]
         public void ShouldReadWithNewlineAtEnd()
         {
             var dataFile = "PdReaderTests1.pd";
             ReadTestStructure(dataFile);
         }
 
-        [TestMethod]
+        [Fact]
         public void ShouldReadWithoutNewlineAtEnd()
         {
             var dataFile = "PdReaderTests1.pd";
@@ -31,9 +30,9 @@ namespace YellowDuckSoftware.Csv.Tests
                     lineNum++;
                     if (lineNum == 1)
                     {
-                        Assert.IsTrue(reader.ColumnNames.ToList().Contains("ID"));
-                        Assert.IsTrue(reader.ColumnNames.ToList().Contains("NAME"));
-                        Assert.IsTrue(reader.ColumnNames.ToList().Contains("VALUE"));
+                        Assert.True(reader.ColumnNames.ToList().Contains("ID"));
+                        Assert.True(reader.ColumnNames.ToList().Contains("NAME"));
+                        Assert.True(reader.ColumnNames.ToList().Contains("VALUE"));
                     }
 
                     switch (lineNum)
@@ -60,9 +59,9 @@ namespace YellowDuckSoftware.Csv.Tests
 
         private void ConfirmValues(IReader reader, string id, string name, string value)
         {
-            Assert.IsTrue(reader["ID"] == id);
-            Assert.IsTrue(reader["NAME"] == name);
-            Assert.IsTrue(reader["VALUE"] == value);
+            Assert.True(reader["ID"] == id);
+            Assert.True(reader["NAME"] == name);
+            Assert.True(reader["VALUE"] == value);
         }
     }
 }

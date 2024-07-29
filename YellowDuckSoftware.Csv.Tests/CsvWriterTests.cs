@@ -1,19 +1,13 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using YellowDuckSoftware.Csv.Reader;
+using Xunit;
 using YellowDuckSoftware.Csv.Writer;
 
 namespace YellowDuckSoftware.Csv.Tests
 {
-    [TestClass]
     public class CsvWriterTests : ReaderTestBase
     {
-        [TestMethod]
+        [Fact]
         public void ShouldWriteCorrectly()
         {
             var dataFile = "CsvWriterTests1.csv";
@@ -48,7 +42,7 @@ namespace YellowDuckSoftware.Csv.Tests
             ReadTestStructure(dataFile);
         }
 
-        [TestMethod]
+        [Fact]
         public void ShouldWriteFromDictionary()
         {
             var dataFile = "CsvWriterTests2.csv";
